@@ -1,0 +1,39 @@
+{% extends 'templates/layout.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+
+        {% include 'templates/sidebar-left.html' %}
+
+        <div class="col-xs-12 main ">
+            <div class="page">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-title">
+                                <span class="name">My Account ></span>
+                                <span class="name">Change password</span>
+                            </div>
+                            <div class="card-content">
+                                <div class="col-lg-3 col-centered login-form">
+                                    <form>
+                                        <label for="password1">New Password</label>
+                                        <input type="password" id="password1">
+                                        <label for="password2">Confirm</label>
+                                        <input type="password" id="password2">
+                                        <button class="btn login-btn">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

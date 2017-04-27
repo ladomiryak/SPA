@@ -1,0 +1,64 @@
+.table-responsive {
+  display: block;
+}
+table {
+  border-collapse: collapse;
+}
+tr {
+  text-align: left;
+  border-bottom: 1px solid white;
+  th {
+    background-color: $dark-gray;
+    color: $white;
+    padding: 7px 10px;
+    font-weight: normal;
+    .fa-sort {
+      margin-left: 5px;
+      font-size: 12px;
+    }
+  }
+  td {
+    padding: 7px 10px;
+    color: $black;
+    span.name {
+      position: relative;
+    }
+    &.status {
+      color: $green;
+      &-disabled {
+        color: $gray;
+      }
+    }
+    .icon-edit {
+      font-size: 20px;
+      color: $gray;
+    }
+    input {
+      box-sizing: border-box;
+      padding: 0 10px;
+      width: 100%;
+      height: 23px;
+      border: 1px solid $gray;
+      border-radius: 5px;
+    }
+    >.dropdown-btn {
+      border: 1px solid $gray;
+      border-radius: 5px;
+    }
+    input, select{
+      +span.error {
+        display: none;
+      }
+    }
+  }
+  .table-options {
+    i {
+      padding-right: 20px;
+      cursor: pointer;
+      color: $gray;
+    }
+  }
+  &:nth-child(even) {
+    background: $table-gray;
+  }
+}

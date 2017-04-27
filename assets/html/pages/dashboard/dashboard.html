@@ -1,0 +1,496 @@
+{% extends 'templates/layout.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+
+        {% include 'templates/sidebar-left.html' %}
+
+        <div class="col-xs-12 main ">
+            <div class="page">
+                <div class="row">
+                    <div class="col-sm-12 actions-panel">
+                        <button class="select-date">Start Date <i class="fa fa-calendar-plus-o"></i></button>
+                        <button class="select-date">End Date <i class="fa fa-calendar-plus-o"></i></button>
+                    </div>
+                    <div class="col-lg-7 col-md-12">
+                        <div class="widget">
+                            <div class="title">
+                                <span>Forecast budget vs actual</span>
+                                <i class="fa fa-angle-down float-right gray"></i>
+                            </div>
+                            <div class="widget-content">
+                                <div>
+                                    <canvas id="myChart" width="400" height="320"></canvas>
+                                    <script type="text/javascript">
+                                        let ctx = document.getElementById("myChart").getContext('2d');
+                                        let gradientGreen = ctx.createLinearGradient(0, 0, 0, 400);
+                                        gradientGreen.addColorStop(0, 'rgba(2,207,139,1)');
+                                        gradientGreen.addColorStop(1, 'rgba(2,207,139,0)');
+                                        let gradientBlue = ctx.createLinearGradient(0, 0, 0, 400);
+                                        gradientBlue.addColorStop(0, 'rgba(34,54,87,1)');
+                                        gradientBlue.addColorStop(1, 'rgba(34,54,87,0)');
+                                        let myChart = new Chart(ctx, {
+                                            type: 'line',
+                                            data: {
+                                                datasets: [{
+                                                    label: "Actual Budget",
+                                                    lineTension: 0.3,
+                                                    backgroundColor: gradientGreen,
+                                                    borderColor: "rgba(2,207,139,1)",
+                                                    borderCapStyle: 'butt',
+                                                    borderDash: [],
+                                                    borderDashOffset: 10.0,
+                                                    borderJoinStyle: 'miter',
+                                                    pointBorderColor: "rgba(75,192,192,1)",
+                                                    pointBackgroundColor: "#fff",
+                                                    pointBorderWidth: 1,
+                                                    pointHoverRadius: 5,
+                                                    pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                                                    pointHoverBorderColor: "rgba(220,220,220,1)",
+                                                    pointHoverBorderWidth: 2,
+                                                    pointRadius: 1,
+                                                    pointHitRadius: 10,
+                                                    data: [{
+                                                        x: 0,
+                                                        y: 1
+                                                    }, {
+                                                        x: 2,
+                                                        y: 0
+                                                    }, {
+                                                        x: 4,
+                                                        y: 1
+                                                    }, {
+                                                        x: 6,
+                                                        y: 0
+                                                    }]
+                                                },
+                                                    {
+                                                        label: "Forecast Budget",
+                                                        lineTension: 0.3,
+                                                        backgroundColor: gradientBlue,
+                                                        borderColor: "rgba(34,54,88,1)",
+                                                        borderCapStyle: 'butt',
+                                                        borderDash: [],
+                                                        borderDashOffset: 0.0,
+                                                        borderJoinStyle: 'miter',
+                                                        pointBorderColor: "rgba(75,192,192,1)",
+                                                        pointBackgroundColor: "#fff",
+                                                        pointBorderWidth: 1,
+                                                        pointHoverRadius: 5,
+                                                        pointHoverBackgroundColor: "rgba(75,192,192,1)",
+                                                        pointHoverBorderColor: "rgba(220,220,220,1)",
+                                                        pointHoverBorderWidth: 2,
+                                                        pointRadius: 1,
+                                                        pointHitRadius: 10,
+                                                        data: [{
+                                                            x: 0,
+                                                            y: 0
+                                                        }, {
+                                                            x: 2,
+                                                            y: 1
+                                                        }, {
+                                                            x: 4,
+                                                            y: 0
+                                                        }, {
+                                                            x: 6,
+                                                            y: 1
+                                                        }]
+                                                    }
+                                                ]
+                                            },
+                                            options: {
+                                                responsive: true,
+                                                maintainAspectRatio: false,
+                                                scales: {
+                                                    xAxes: [{
+                                                        type: 'linear',
+                                                        position: 'bottom'
+                                                    }],
+                                                    yAxes: [{
+                                                        stacked: false
+                                                    }]
+
+                                                }
+                                            }
+                                        });
+                                    </script>
+                                </div>
+                                <div class="graph-legend total">
+                                    <span><i class="fa fa-circle green"></i>Actual Budget</span>
+                                    <span><i class="fa fa-circle dark-blue"></i>Forecast Budget</span>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="widget">
+                            <div class="title">
+                                <span>tactics status</span>
+                                <i class="fa fa-angle-down float-right gray"></i>
+                            </div>
+                            <div class="widget-content flex">
+                                <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2">
+                                    <canvas id="rejectedPieChart" width="200" height="200"></canvas>
+                                    <script>
+                                        let data = {
+                                            labels: [
+                                                "Rejected",
+                                                "Approved",
+                                                "Draft",
+                                                "Completed"
+                                            ],
+                                            datasets: [
+                                                {
+                                                    data: [32, 63, 9, 8],
+                                                    backgroundColor: [
+                                                        "#eaefbd",
+                                                        "#f3ca40",
+                                                        "#f49d37",
+                                                        "#3cbbb1"
+                                                    ],
+                                                    hoverBackgroundColor: [
+                                                        "#eaefbd",
+                                                        "#f3ca40",
+                                                        "#f49d37",
+                                                        "#3cbbb1"
+                                                    ]
+                                                }]
+                                        };
+                                        let rejectedPieChart = document.getElementById("rejectedPieChart");
+                                        let myDoughnutChart = new Chart(rejectedPieChart, {
+                                            type: 'pie',
+                                            data: data,
+                                            options: {
+                                                responsive: true,
+                                                legend: {
+                                                    display: true,
+                                                    position: 'bottom'
+                                                }
+                                            }
+                                        });
+
+                                    </script>
+                                    <!--<p class="pie-chart-value">34%</p>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-12">
+                        <div class="widget">
+                            <div class="title">
+                                <span>KPIS</span>
+                                <i class="fa fa-angle-down float-right gray"></i>
+                            </div>
+                            <div class="widget-content">
+                                <canvas id="kpi-bar-chart" width="300" height="125"></canvas>
+                                <script type="text/javascript">
+                                    let kpiGraph = document.getElementById('kpi-bar-chart').getContext('2d');
+                                    let mykpiGraph = new Chart(kpiGraph, {
+                                        type: 'horizontalBar',
+                                        data: {
+                                            labels: ["Failed", "Achieved"],
+                                            datasets: [{
+                                                label: 'Actual Budget',
+                                                data: [15000, 11000],
+                                                backgroundColor: [
+                                                    '#02cf8b',
+                                                    '#223658'
+                                                ],
+                                                borderColor: [
+                                                    '#02cf8b',
+                                                    '#223658'
+                                                ],
+                                                borderWidth: 2
+                                            }
+                                            ]
+                                        },
+                                        options: {
+                                            legend: {
+                                                display: false,
+                                                labels: {
+                                                    fontColor: 'rgb(255, 99, 132)'
+                                                }
+                                            },
+                                            stacked: true,
+                                            responsive: true,
+                                            maintainAspectRatio: false,
+                                            scales: {
+                                                xAxes: [{
+                                                    stacked: true
+                                                }],
+                                                yAxes: [{
+                                                    stacked: true,
+                                                    barThickness: 30
+                                                }]
+
+                                            }
+                                        }
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                        <div class="widget">
+                            <div class="title">
+                                <span>invited vs arrived group meeting</span>
+                                <i class="fa fa-angle-down float-right gray"></i>
+                            </div>
+                            <div class="widget-content">
+                                <canvas id="pieChart" width="200" height="125"></canvas>
+                                <script>
+                                    let pieContainer = document.getElementById("pieChart");
+                                    let groupMeetingDoughnutChart = new Chart(pieContainer, {
+                                        type: 'doughnut',
+                                        data: {
+                                            labels: [
+                                                "Arrived Group",
+                                                "Invited Group"
+                                            ],
+                                            datasets: [
+                                                {
+                                                    data: [63, 37],
+                                                    backgroundColor: [
+                                                        "#02cf8b",
+                                                        "#223658"
+                                                    ],
+                                                    hoverBackgroundColor: [
+                                                        "#02cf8b",
+                                                        "#223658"
+                                                    ]
+                                                }]
+                                        },
+                                        options: {
+                                            responsive: false,
+                                            legend: {
+                                                display: false
+                                            }
+                                        }
+                                    });
+
+                                </script>
+                            </div>
+
+                        </div>
+                        <div class="widget">
+                            <div class="title">
+                                <span>target satisfaction vs actual</span>
+                                <i class="fa fa-angle-down float-right gray"></i>
+                            </div>
+                            <div class="widget-content">
+                                <canvas id="target-satisfaction-bar-chart" width="350" height="270"></canvas>
+                                <script type="text/javascript">
+                                    let targetSatisfactionGraph = document.getElementById('target-satisfaction-bar-chart').getContext('2d');
+                                    let mytargetSatisfactionGraph = new Chart(targetSatisfactionGraph, {
+                                        type: 'bar',
+                                        data: {
+                                            labels: ["Target Satisfaction", "Actual Satisfaction"],
+                                            datasets: [{
+                                                label: 'Actual Budget',
+                                                data: [15000, 11000],
+                                                backgroundColor: [
+                                                    '#02cf8b',
+                                                    '#223658'
+                                                ],
+                                                borderColor: [
+                                                    '#02cf8b',
+                                                    '#223658'
+                                                ],
+                                                borderWidth: 2
+                                            }
+                                            ]
+                                        },
+                                        options: {
+                                            legend: {
+                                                display: false,
+                                                labels: {
+                                                    fontColor: 'rgb(255, 99, 132)'
+                                                }
+                                            },
+                                            stacked: true,
+                                            responsive: true,
+                                            maintainAspectRatio: false,
+                                            scales: {
+                                                xAxes: [{
+                                                    stacked: true
+                                                }],
+                                                yAxes: [{
+                                                    stacked: true,
+                                                    barThickness: 30
+                                                }]
+
+                                            }
+                                        }
+                                    });
+                                </script>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="widget reports">
+                            <div class="title">
+                                <span>Forecast budget vs actual budget</span>
+                            </div>
+                            <div class="tabs">
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li class="nav-item">
+                                        <span class="nav-link active" data-toggle="tab" role="tab"><i
+                                                class="fa fa-ellipsis-h"></i></span>
+                                    </li>
+                                    <li class="nav-item">
+                                        <span class="nav-link" data-toggle="tab" role="tab"><i
+                                                class="fa fa-line-chart"></i></span>
+                                    </li>
+                                    <li class="nav-item active">
+                                        <span class="nav-link" data-toggle="tab" role="tab"><i class="fa fa-signal"></i></span>
+                                    </li>
+                                    <li class="nav-item">
+                                        <span class="nav-link" data-toggle="tab" role="tab"><i
+                                                class="fa fa-pie-chart"></i></span>
+                                    </li>
+
+                                    <div class="buttons float-right">
+                                        <div class="btn-group">
+                                            <button class="btn gray-btn">Refresh</button>
+                                        </div>
+                                        <div class="btn-group">
+                                            <button class="btn gray-btn">Export</button>
+                                        </div>
+                                    </div>
+                                </ul>
+
+                            </div>
+                            <div class="widget-content graph">
+                                <div class="total">
+                                    <span class="font-bold">17 100 $</span><span class="gray">Forecast Total</span>
+                                    <span class="font-bold green">17 300 $</span><span class="gray">Actual Total</span>
+                                    <div class="btn-group float-right">
+                                        <span class="gray">Period:</span>
+                                        <div class="dropdown">
+                                            <button class="btn dropdown-btn no-bg">Month<i class="fa fa-angle-down"></i>
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <span class="dropdown-item">Dropdown Item</span>
+                                                <span class="dropdown-item">Dropdown Item</span>
+                                                <span class="dropdown-item">Dropdown Item</span>
+                                                <span class="dropdown-item">Dropdown Item</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-content">
+                                    <canvas id="dashboardChart" width="400" height="400"></canvas>
+                                    <script type="text/javascript">
+                                        var secondChart = document.getElementById("dashboardChart");
+                                        var mySecondChart = new Chart(secondChart, {
+                                            type: 'bar',
+                                            data: {
+                                                labels: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"],
+                                                datasets: [{
+                                                    label: 'Actual Budget',
+                                                    data: [15000, 11000, 13000, 17000, 14000, 18000, 16000, 16000, 18000, 13000, 19000, 9000],
+                                                    backgroundColor: [
+                                                        '#02cf8b',
+                                                        '#02cf8b',
+                                                        '#02cf8b',
+                                                        '#02cf8b',
+                                                        '#02cf8b',
+                                                        '#02cf8b',
+                                                        '#02cf8b',
+                                                        '#02cf8b',
+                                                        '#02cf8b',
+                                                        '#02cf8b',
+                                                        '#02cf8b',
+                                                        '#02cf8b'
+                                                    ],
+                                                    borderColor: [
+                                                        '#02cf8b',
+                                                        '#02cf8b',
+                                                        '#02cf8b',
+                                                        '#02cf8b',
+                                                        '#02cf8b',
+                                                        '#02cf8b',
+                                                        '#02cf8b',
+                                                        '#02cf8b',
+                                                        '#02cf8b',
+                                                        '#02cf8b',
+                                                        '#02cf8b',
+                                                        '#02cf8b'
+                                                    ],
+                                                    borderWidth: 2
+                                                },{
+                                                    label: 'Forecast Budget',
+                                                    data: [9000, 4000, 6000, 11000, 8000, 12000, 11000, 9000, 12000, 6000, 14000, 3000],
+                                                    backgroundColor: [
+                                                        '#223658',
+                                                        '#223658',
+                                                        '#223658',
+                                                        '#223658',
+                                                        '#223658',
+                                                        '#223658',
+                                                        '#223658',
+                                                        '#223658',
+                                                        '#223658',
+                                                        '#223658',
+                                                        '#223658',
+                                                        '#223658'
+                                                    ],
+                                                    borderColor: [
+                                                        '#223658',
+                                                        '#223658',
+                                                        '#223658',
+                                                        '#223658',
+                                                        '#223658',
+                                                        '#223658',
+                                                        '#223658',
+                                                        '#223658',
+                                                        '#223658',
+                                                        '#223658',
+                                                        '#223658',
+                                                        '#223658'
+                                                    ],
+                                                    borderWidth: 2
+                                                }
+                                                ]
+                                            },
+                                            options: {
+                                                legend: {
+                                                    display: false,
+                                                    labels: {
+                                                        fontColor: 'rgb(255, 99, 132)'
+                                                    }
+                                                },
+                                                stacked: true,
+                                                responsive: true,
+                                                maintainAspectRatio: false,
+                                                scales: {
+                                                    xAxes: [{
+                                                        stacked: true
+                                                    }],
+                                                    yAxes: [{
+                                                        stacked: true
+                                                    }]
+
+                                                }
+                                            }
+                                        });
+                                    </script>
+                                </div>
+                                <div class="graph-legend total">
+                                    <span><i class="fa fa-circle green"></i>Actual Budget</span>
+                                    <span><i class="fa fa-circle dark-blue"></i>Forecast Budget</span>
+                                    <div class="float-right">
+                                        <div class="btn-group">
+                                            <button class="btn green-btn">Save</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

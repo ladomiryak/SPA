@@ -1,0 +1,246 @@
+{% extends 'templates/layout.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+
+        {% include 'templates/sidebar-left.html' %}
+
+        <div class="col-xs-12 main ">
+            <div class="page">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-title">
+                                <div class="tabs">
+                                    <div class="tab">
+                                        <span class="name">Objectives</span>
+                                        <span class="counter">47</span>
+                                    </div>
+                                    <div class="tab">
+                                        <span class="name">Projects</span>
+                                        <span class="counter">13</span>
+                                    </div>
+                                    <div class="tab active">
+                                        <span class="name">Tactics</span>
+                                        <span class="counter">24</span>
+                                    </div>
+                                </div>
+                                <div class="float-right">
+                                    <button class="btn add-btn"><i class="icon-filter"></i></button>
+                                    <button class="btn add-btn"><i class="icon-plus-button"></i></button>
+                                    <input type="text" class="search-input" placeholder="Search for Projects">
+                                    <i class="fa fa-search"></i>
+                                </div>
+                            </div>
+                            <div class="filter-bar">
+                                <div class="row">
+                                   <div class="col-lg-3">
+                                       <div class="date">
+                                           <label class="select-date" for="startDate">Start Date</label><br>
+                                           <input type="text" class="select-date" id="startDate" value="05/2017" readonly /><br>
+                                       </div>
+                                       <div class="date">
+                                           <label class="select-date" for="endDate">End Date</label><br>
+                                           <input class="select-date" id="endDate" value="05/2017" readonly /><br>
+                                       </div>
+                                       <div class="dropdown">
+                                           <label for="input7">By Assignee</label>
+                                           <input type="text" id="input7" class="dropdown-input" placeholder="Select">
+                                           <div class="dropdown-menu">
+                                               <span class="dropdown-item">Dropdown Item</span>
+                                               <span class="dropdown-item">Dropdown Item</span>
+                                               <span class="dropdown-item">Dropdown Item</span>
+                                               <span class="dropdown-item">Dropdown Item</span>
+                                               <div class="dropdown-navigation">
+                                                   <i class="fa fa-angle-left float-left"></i>
+                                                   <span>1-8 of 20</span>
+                                                   <i class="fa fa-angle-right float-right"></i>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                                   <div class="col-lg-3">
+                                       <div class="dropdown">
+                                           <label for="input1">By Department</label>
+                                           <input type="text" id="input1" class="dropdown-input" placeholder="Select">
+                                           <div class="dropdown-menu">
+                                               <span class="dropdown-item">Dropdown Item</span>
+                                               <span class="dropdown-item">Dropdown Item</span>
+                                               <span class="dropdown-item">Dropdown Item</span>
+                                               <span class="dropdown-item">Dropdown Item</span>
+                                               <div class="dropdown-navigation">
+                                                   <i class="fa fa-angle-left float-left"></i>
+                                                   <span>1-8 of 20</span>
+                                                   <i class="fa fa-angle-right float-right"></i>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="dropdown">
+                                           <label for="input4">By Project</label>
+                                           <input type="text" id="input4" class="dropdown-input" placeholder="Select">
+                                           <div class="dropdown-menu">
+                                               <span class="dropdown-item">Dropdown Item</span>
+                                               <span class="dropdown-item">Dropdown Item</span>
+                                               <span class="dropdown-item">Dropdown Item</span>
+                                               <span class="dropdown-item">Dropdown Item</span>
+                                               <div class="dropdown-navigation">
+                                                   <i class="fa fa-angle-left float-left"></i>
+                                                   <span>1-8 of 20</span>
+                                                   <i class="fa fa-angle-right float-right"></i>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="dropdown">
+                                           <label for="input8">By Priority</label>
+                                           <input type="text" id="input8" class="dropdown-input" placeholder="Select">
+                                           <div class="dropdown-menu">
+                                               <span class="dropdown-item">Dropdown Item</span>
+                                               <span class="dropdown-item">Dropdown Item</span>
+                                               <span class="dropdown-item">Dropdown Item</span>
+                                               <span class="dropdown-item">Dropdown Item</span>
+                                               <div class="dropdown-navigation">
+                                                   <i class="fa fa-angle-left float-left"></i>
+                                                   <span>1-8 of 20</span>
+                                                   <i class="fa fa-angle-right float-right"></i>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                                   <div class="col-lg-3">
+                                       <div class="dropdown">
+                                           <label for="input2">By Product</label>
+                                           <input type="text" id="input2" class="dropdown-input" placeholder="Select">
+                                           <div class="dropdown-menu">
+                                               <span class="dropdown-item">Dropdown Item</span>
+                                               <span class="dropdown-item">Dropdown Item</span>
+                                               <span class="dropdown-item">Dropdown Item</span>
+                                               <span class="dropdown-item">Dropdown Item</span>
+                                               <div class="dropdown-navigation">
+                                                   <i class="fa fa-angle-left float-left"></i>
+                                                   <span>1-8 of 20</span>
+                                                   <i class="fa fa-angle-right float-right"></i>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="dropdown">
+                                           <label for="input5">By Tactic Type</label>
+                                           <input type="text" id="input5" class="dropdown-input" placeholder="Select">
+                                           <div class="dropdown-menu">
+                                               <span class="dropdown-item">Dropdown Item</span>
+                                               <span class="dropdown-item">Dropdown Item</span>
+                                               <span class="dropdown-item">Dropdown Item</span>
+                                               <span class="dropdown-item">Dropdown Item</span>
+                                               <div class="dropdown-navigation">
+                                                   <i class="fa fa-angle-left float-left"></i>
+                                                   <span>1-8 of 20</span>
+                                                   <i class="fa fa-angle-right float-right"></i>
+                                               </div>
+                                           </div>
+                                       </div>
+                                       <div class="dropdown">
+                                           <label for="input9">By Status</label>
+                                           <input type="text" id="input9" class="dropdown-input" placeholder="Select">
+                                           <div class="dropdown-menu">
+                                               <span class="dropdown-item">Dropdown Item</span>
+                                               <span class="dropdown-item">Dropdown Item</span>
+                                               <span class="dropdown-item">Dropdown Item</span>
+                                               <span class="dropdown-item">Dropdown Item</span>
+                                               <div class="dropdown-navigation">
+                                                   <i class="fa fa-angle-left float-left"></i>
+                                                   <span>1-8 of 20</span>
+                                                   <i class="fa fa-angle-right float-right"></i>
+                                               </div>
+                                           </div>
+                                       </div>
+                                   </div>
+                                   <div class="col-lg-3">
+                                       <label for="input3">By Objective</label>
+                                       <input type="text" id="input3" class="dropdown-input" placeholder="Select">
+                                       <label for="input6">By Creator</label>
+                                       <input type="text" id="input6" class="dropdown-input" placeholder="Select">
+                                       <label for="input0">By KPI Type</label>
+                                       <input type="text" id="input0" class="dropdown-input" placeholder="Select">
+                                   </div>
+                                </div>
+                                .
+                            </div>
+                            <div class="card-content">
+                                <div class="table-responsive">
+                                    <table>
+                                        <thead>
+                                        <tr>
+                                            <th>WBS Code<i class="fa fa-angle-down float-right"></i></th>
+                                            <th>Name</th>
+                                            <th>Creator</th>
+                                            <th>Assignees</th>
+                                            <th>Tactic Type</th>
+                                            <th>Status</th>
+                                            <th>KPI</th>
+                                            <th>Due Date</th>
+                                            <th>Options</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>Sales Project</td>
+                                            <td>Estimating Sales</td>
+                                            <td>John Doe</td>
+                                            <td>Mark David</td>
+                                            <td>PR & Marketing</td>
+                                            <td>Completed</td>
+                                            <td>2/5 Achieved</td>
+                                            <td>16/01/2017</td>
+                                            <td><i class="icon-edit"></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sales Project</td>
+                                            <td>Estimating Sales</td>
+                                            <td>John Doe</td>
+                                            <td>Mark David</td>
+                                            <td>PR & Marketing</td>
+                                            <td>Completed</td>
+                                            <td>2/5 Achieved</td>
+                                            <td>16/01/2017</td>
+                                            <td><i class="icon-edit"></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sales Project</td>
+                                            <td>Estimating Sales</td>
+                                            <td>John Doe</td>
+                                            <td>Mark David</td>
+                                            <td>PR & Marketing</td>
+                                            <td>Completed</td>
+                                            <td>2/5 Achieved</td>
+                                            <td>16/01/2017</td>
+                                            <td><i class="icon-edit"></i></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="widget-bottom">
+                                <div class="col-lg-6">
+                                    <ul class="pagination">
+                                        <li><i class="fa fa-angle-double-left"></i></li>
+                                        <li><i class="fa fa-angle-left"></i></li>
+                                        <li><i>1</i></li>
+                                        <li><i>2</i></li>
+                                        <li class="active"><i>3</i></li>
+                                        <li><i>4</i></li>
+                                        <li><i class="fa fa-angle-right"></i></li>
+                                        <li><i class="fa fa-angle-double-right"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

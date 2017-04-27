@@ -1,0 +1,79 @@
+{% extends 'templates/layout.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+
+        {% include 'templates/sidebar-left.html' %}
+
+        <div class="col-xs-12 main ">
+            <div class="page">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="widget">
+                            <div class="title">
+                                Ui elements
+                            </div>
+                            <div class="widget-content">
+                                <h2>Buttons</h2>
+                                <button class="btn add-btn"><i class="fa fa-plus-circle"></i>Add User</button>
+                                <button class="btn gray-btn">Edit</button>
+                                <button class="btn green-btn">Save</button>
+                                <button class="select-date">Start Date <i class="fa fa-calendar-plus-o"></i></button>
+                                <h2>Dropdowns</h2>
+                                <div class="btn-group">
+                                    <div class="dropdown">
+                                        <button class="btn dropdown-btn">Project Name <i class="fa fa-angle-down"></i></button>
+                                        <div class="dropdown-menu">
+                                            <span class="dropdown-item">Dropdown Item</span>
+                                            <span class="dropdown-item">Dropdown Item</span>
+                                            <span class="dropdown-item">Dropdown Item</span>
+                                            <span class="dropdown-item">Dropdown Item</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="btn-group">
+                                    <div class="dropdown show">
+                                        <button class="btn dropdown-btn">Project Name <i class="fa fa-angle-down"></i></button>
+                                        <div class="dropdown-menu">
+                                            <span class="dropdown-item">Dropdown Item</span>
+                                            <span class="dropdown-item">Dropdown Item</span>
+                                            <span class="dropdown-item">Dropdown Item</span>
+                                            <span class="dropdown-item">Dropdown Item</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="btn-group">
+                                    <div class="dropdown">
+                                        <button class="btn dropdown-btn no-bg">Project Name <i class="fa fa-angle-down"></i></button>
+                                        <div class="dropdown-menu">
+                                            <span class="dropdown-item">Dropdown Item</span>
+                                            <span class="dropdown-item">Dropdown Item</span>
+                                            <span class="dropdown-item">Dropdown Item</span>
+                                            <span class="dropdown-item">Dropdown Item</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="btn-group">
+                                    <div class="dropdown show">
+                                        <button class="btn dropdown-btn no-bg">Project Name <i class="fa fa-angle-down"></i></button>
+                                        <div class="dropdown-menu">
+                                            <span class="dropdown-item">Dropdown Item</span>
+                                            <span class="dropdown-item">Dropdown Item</span>
+                                            <span class="dropdown-item">Dropdown Item</span>
+                                            <span class="dropdown-item">Dropdown Item</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

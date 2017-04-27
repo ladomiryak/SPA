@@ -1,0 +1,106 @@
+{% extends 'templates/layout.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+
+        {% include 'templates/sidebar-left.html' %}
+
+        <div class="col-xs-12 main ">
+            <div class="page">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-title">
+                                <div class="tabs">
+                                    <div class="tab active">
+                                        <span class="name">Objectives</span>
+                                        <span class="counter">47</span>
+                                    </div>
+                                    <div class="tab">
+                                        <span class="name">Projects</span>
+                                        <span class="counter">13</span>
+                                    </div>
+                                    <div class="tab">
+                                        <span class="name">Tactics</span>
+                                        <span class="counter">24</span>
+                                    </div>
+                                </div>
+                                <div class="float-right">
+                                    <button class="btn add-btn"><i class="icon-filter"></i></button>
+                                    <button class="btn add-btn"><i class="icon-plus-button"></i></button>
+                                    <input type="text" class="search-input" placeholder="Search for Objectives">
+                                    <i class="fa fa-search"></i>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <div class="table-responsive">
+                                    <table>
+                                        <thead>
+                                        <tr>
+                                            <th>Name<i class="fa fa-angle-down float-right"></i></th>
+                                            <th>Creator</th>
+                                            <th># of Projects</th>
+                                            <th># of Tactics</th>
+                                            <th>KPI</th>
+                                            <th>Creation Date</th>
+                                            <th>Options</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td><span class="name">Increase Sales</span></td>
+                                            <td>John Doe</td>
+                                            <td>3</td>
+                                            <td>14</td>
+                                            <td>10/20 Achieved</td>
+                                            <td>16/01/2017 5:56 PM</td>
+                                            <td><i class="icon-edit"></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="name">Increase Sales</span></td>
+                                            <td>John Doe</td>
+                                            <td>3</td>
+                                            <td>14</td>
+                                            <td>10/20 Achieved</td>
+                                            <td>16/01/2017 5:56 PM</td>
+                                            <td><i class="icon-edit"></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="name">Increase Sales</span></td>
+                                            <td>John Doe</td>
+                                            <td>3</td>
+                                            <td>14</td>
+                                            <td>10/20 Achieved</td>
+                                            <td>16/01/2017 5:56 PM</td>
+                                            <td><i class="icon-edit"></i></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="widget-bottom">
+                                <div class="col-lg-6">
+                                    <ul class="pagination">
+                                        <li><i class="fa fa-angle-double-left"></i></li>
+                                        <li><i class="fa fa-angle-left"></i></li>
+                                        <li><i>1</i></li>
+                                        <li><i>2</i></li>
+                                        <li class="active"><i>3</i></li>
+                                        <li><i>4</i></li>
+                                        <li><i class="fa fa-angle-right"></i></li>
+                                        <li><i class="fa fa-angle-double-right"></i></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

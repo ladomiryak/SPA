@@ -1,0 +1,112 @@
+{% extends 'templates/layout.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+
+        {% include 'templates/sidebar-left.html' %}
+
+        <div class="col-xs-12 main ">
+            <div class="page">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-title">
+                                <span class="name">users</span>
+                                <span class="counter">13</span>
+                                <div class="float-right">
+                                    <button class="btn add-btn"><i class="icon-plus-button"></i></button>
+                                    <input type="text" class="search-input" placeholder="Search for Users">
+                                    <i class="fa fa-search"></i>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <div class="table-responsive">
+                                    <table>
+                                        <colgroup>
+                                            <col width="15%">
+                                            <col width="15%">
+                                            <col width="20%">
+                                            <col width="15%">
+                                            <col width="20%">
+                                            <col width="10%">
+                                            <col width="5%">
+                                        </colgroup>
+                                        <thead>
+                                        <tr>
+                                            <th>Name<i class="fa fa-sort"></i></th>
+                                            <th>Position</th>
+                                            <th>Email Address</th>
+                                            <th>Access Role</th>
+                                            <th>Supervisor</th>
+                                            <th>Status</th>
+                                            <th>Options</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td><span class="name">Alex Nowak</span></td>
+                                            <td>Manager</td>
+                                            <td> john@roche.com</td>
+                                            <td>Super Admin</td>
+                                            <td>---</td>
+                                            <td><span>Active</span></td>
+                                            <td><i class="icon-edit"></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="name">Konstantinovskiy Kostya</span></td>
+                                            <td>Manager</td>
+                                            <td> john@roche.com</td>
+                                            <td>Employee</td>
+                                            <td>---</td>
+                                            <td><span>Active</span></td>
+                                            <td><i class="icon-edit"></i></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="name">Stan Smith</span></td>
+                                            <td>Manager</td>
+                                            <td> john@roche.com</td>
+                                            <td>Employee</td>
+                                            <td>John Doe</td>
+                                            <td><span>Active</span></td>
+                                            <td><i class="icon-edit"></i></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="widget-bottom row">
+                                <div class="col-lg-6">
+                                    <ul class="pagination">
+                                        <li><i class="fa fa-angle-double-left"></i></li>
+                                        <li><i class="fa fa-angle-left"></i></li>
+                                        <li><i>1</i></li>
+                                        <li><i>2</i></li>
+                                        <li class="active"><i>3</i></li>
+                                        <li><i>4</i></li>
+                                        <li><i class="fa fa-angle-right"></i></li>
+                                        <li><i class="fa fa-angle-double-right"></i></li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="items-per-page float-right">
+                                        <select>
+                                            <option value="20">20</option>
+                                            <option value="50">50</option>
+                                            <option value="100">100</option>
+                                        </select>
+                                        <span> results per page</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

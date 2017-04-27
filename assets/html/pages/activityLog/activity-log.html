@@ -1,0 +1,111 @@
+{% extends 'templates/layout.html' %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+
+        {% include 'templates/sidebar-left.html' %}
+
+        <div class="col-xs-12 main ">
+            <div class="page">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-title">
+                                <span class="name">Activity log</span>
+                                <div class="float-right">
+                                    <input type="text" class="search-input" placeholder="Search by keyword">
+                                    <i class="fa fa-search"></i>
+                                </div>
+                            </div>
+                            <div class="card-content">
+                                <div class="table-responsive">
+                                    <table>
+                                        <colgroup>
+                                            <col width="15%">
+                                            <col width="15%">
+                                            <col width="15%">
+                                            <col width="15%">
+                                            <col width="25%">
+                                            <col width="15%">
+                                        </colgroup>
+                                        <thead>
+                                        <tr>
+                                            <th>Name<i class="fa fa-sort"></i></th>
+                                            <th>Position</th>
+                                            <th>Acces Role</th>
+                                            <th>Activity</th>
+                                            <th>Description</th>
+                                            <th>Time</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>John Doe</td>
+                                            <td>Manager</td>
+                                            <td>Super Admin</td>
+                                            <td>Logged in</td>
+                                            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                                Alias distinctio earum iure minima nisi quibusdam quisquam
+                                            </td>
+                                            <td>16/01/2017 5:56 PM</td>
+                                        </tr>
+                                        <tr>
+                                            <td>John Doe</td>
+                                            <td>Manager</td>
+                                            <td>Super Admin</td>
+                                            <td>Logged in</td>
+                                            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                                Alias distinctio earum iure minima nisi quibusdam quisquam
+                                            </td>
+                                            <td>16/01/2017 5:56 PM</td>
+                                        </tr>
+                                        <tr>
+                                            <td>John Doe</td>
+                                            <td>Manager</td>
+                                            <td>Super Admin</td>
+                                            <td>Logged in</td>
+                                            <td>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                                Alias distinctio earum iure minima nisi quibusdam quisquam
+                                            </td>
+                                            <td>16/01/2017 5:56 PM</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="widget-bottom row">
+                                <div class="col-lg-6">
+                                    <ul class="pagination">
+                                        <li><i class="fa fa-angle-double-left"></i></li>
+                                        <li><i class="fa fa-angle-left"></i></li>
+                                        <li><i>1</i></li>
+                                        <li><i>2</i></li>
+                                        <li class="active"><i>3</i></li>
+                                        <li><i>4</i></li>
+                                        <li><i class="fa fa-angle-right"></i></li>
+                                        <li><i class="fa fa-angle-double-right"></i></li>
+                                    </ul>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="items-per-page float-right">
+                                        <select>
+                                            <option value="20">20</option>
+                                            <option value="50">50</option>
+                                            <option value="100">100</option>
+                                        </select>
+                                        <span> results per page</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

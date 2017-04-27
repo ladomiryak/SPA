@@ -1,0 +1,32 @@
+{
+  "apps": [{
+    "name": "SPA",
+    "script": "server",
+    "watch": true,
+    "exec_mode": "cluster",
+    "instances": 1,
+    "merge_logs": true,
+    "cwd": "./",
+    "env": {
+      "NODE_ENV": "development",
+      "BABEL_ENV": "development",
+      "PORT": "",
+      "REMOTE_API_HOST": "",
+      "REMOTE_API_PORT": ""
+    },
+    "env_staging": {
+      "NODE_ENV": "staging",
+      "BABEL_ENV": "staging",
+      "PORT": "",
+      "REMOTE_API_HOST": "",
+      "REMOTE_API_PORT": ""
+    },
+    "env_production": {
+      "NODE_ENV": "production",
+      "BABEL_ENV": "production",
+      "PORT": "",
+      "REMOTE_API_HOST": "",
+      "REMOTE_API_PORT": ""
+    }
+  }]
+}

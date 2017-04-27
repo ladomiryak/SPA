@@ -1,0 +1,23 @@
+{
+  "presets" : [
+    "react",
+    "es2015",
+    "stage-0"
+  ],
+  "plugins" : [
+    "transform-react-jsx",
+    "transform-runtime",
+    "react-html-attrs",
+    "react-hot-loader/babel",
+    "transform-class-properties",
+    "transform-decorators-legacy"
+  ],
+  "ignore" : [],
+  "env": {
+    "development": {
+      "presets": ["react-hmre"]
+    },
+    "production": {
+    }
+  }
+}

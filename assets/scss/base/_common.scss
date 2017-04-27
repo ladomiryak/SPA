@@ -1,0 +1,92 @@
+@import "variables";
+@import "form-reset";
+
+* {
+  box-sizing: inherit;
+}
+html {
+  font-family: Calibri;
+  background-color: $site-background;
+}
+html, body {
+  height: 100%;
+  min-height: 100%;
+}
+body {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  position: relative;
+}
+p {
+  margin: 0
+}
+a {
+    text-decoration: none;
+}
+ol, ul, dl {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  list-style: none;
+}
+
+img {
+  width: 100%;
+}
+
+.container-fluid {
+  >.row {
+    background-color: $site-background;
+  }
+}
+
+// MARGIN & PADDING
+
+.float-right {
+  float: right;
+}
+.float-left {
+  float: left;
+}
+.col-centered{
+  float: none;
+  margin: 0 auto;
+}
+.mt100 {
+  margin-top: 100px!important;
+}
+.p0 {
+  padding: 0;
+}
+.p15 {
+  padding: 15px;
+}
+
+// COLOR CLASSES
+
+.gray {
+  color: $gray;
+}
+.green {
+  color: $green;
+}
+.dark-blue {
+  color: $dark-blue;
+}
+
+// FONT CLASSES
+.font-bold {
+  font-weight: bold;
+}
+
+
+// DISPLAY
+.flex {
+  display: flex;
+}
+.disabled {
+  pointer-events: none;
+}
+.hidden {
+  display: none;
+}

@@ -1,0 +1,37 @@
+@import "variables";
+
+.pagination {
+  padding: 15px 15px 0;
+  li {
+    font-size: 20px;
+    float: left;
+    padding: 0 5px;
+    cursor: pointer;
+    color: $gray;
+    &.active {
+      color: black;
+      font-weight: bold;
+    }
+    i:not(.fa) {
+      padding: 3px 4px;
+      display: inline-block;
+      font: inherit;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+    }
+  }
+  .fa-angle-double-left,
+  .fa-angle-double-right,
+  .fa-angle-left,
+  .fa-angle-right {
+    padding: 5px 10px;
+    border-radius: 3px;
+    color: $gray;
+    background: $gray-2;
+  }
+
+}
+.items-per-page {
+  padding: 15px 15px 0;
+}
