@@ -15,21 +15,21 @@ export default class ParcelsItem extends Component {
             owner,
             startDate,
             removeParcel,
-            showModal
+            showModal,
+            edit
 
         } = this.props;
 
         return (
-            <tr>
-                <td>{title}</td>
-                <td>{from.city}</td>
-                <td>{to.city}</td>
-                <td>{price}</td>
-                <td>{size.name}</td>
-               {/* <td>{startDate}</td>*/}
-                <td>{owner.fullName}</td>
-                <td><span onClick={()=>{showModal(_id)}}>X</span></td>
-                {/*<td><span onClick={()=>{removeParcel(_id)}}>X</span></td>*/}
+            <tr data-id={_id}>
+                <td><input type="text" value={title} disabled/></td>
+                <td><input type="text" value={from.city} disabled/></td>
+                <td><input type="text" value={to.city} disabled/></td>
+                <td><input type="text" value={price} disabled/></td>
+                <td><input type="text" value={size.name} disabled/></td>
+                <td><input type="text" value={owner.fullName} disabled/></td>
+                <td className="text-center"><span onClick={()=>{edit(_id)}} className="icon-edit"></span></td>
+                <td className="text-center"><span onClick={()=>{showModal(_id)}} className="icon-delete red"></span></td>
             </tr>
 
         );

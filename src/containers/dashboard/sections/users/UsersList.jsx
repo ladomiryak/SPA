@@ -140,13 +140,13 @@ export default class UsersList extends Component {
 
 
     render() {
-        const { currentlySorted } = this.state;
-        const { usersData } = this.props;
-        const { editableUser } = usersData;
+        const {currentlySorted} = this.state;
+        const {usersData} = this.props;
+        const {editableUser} = usersData;
         const items = usersData.users.map((item) => {
             if (editableUser && editableUser._id === item._id) {
                 return (
-                    <EditUser key={item._id} editableUser={item} />
+                    <EditUser key={item._id} editableUser={item}/>
                 );
             }
 
@@ -168,7 +168,6 @@ export default class UsersList extends Component {
             showCreateUserComponent,
         } = usersData;
 
-        if(items !== undefined) {
             return (
                 <div className="row">
                     <div className="col-lg-12">
@@ -177,7 +176,7 @@ export default class UsersList extends Component {
                                 <span className="name">users</span>
                                 <span className="counter">{totalRecords}</span>
                                 <div className="float-right">
-                                    <button className="btn add-btn">
+                                    <button className="btn add-btn hidden-xl-down">
                                         <i className="icon-plus-button" onClick={this.handleCreateUserClick} />
                                     </button>
                                     <DebounceInput
@@ -192,15 +191,15 @@ export default class UsersList extends Component {
                             </div>
                             <div className="card-content">
                                 <div className="table-responsive">
-                                    <table>
+                                    <table className="table table-sm">
                                         <colgroup>
                                             <col width="10%" />
                                             <col width="15%" />
+                                            <col width="8%" />
                                             <col width="20%" />
-                                            <col width="20%" />
-                                            <col width="15%" />
+                                            <col width="7%" />
                                             <col width="10%" />
-                                            <col width="10%" />
+                                            <col width="5%" />
                                         </colgroup>
                                         <thead>
                                         <tr>
@@ -229,12 +228,12 @@ export default class UsersList extends Component {
                                                         this.sort('email');
                                                     }
                                                 }
-                                            >Email Address
+                                            >Email
                                                 {currentlySorted === 'email' ? <i className="fa fa-sort" /> : ''}
                                             </th>
                                             <th>Gender</th>
                                             <th>Phone</th>
-                                            <th>Paypal synced</th>
+                                            <th>Paypal</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -270,16 +269,7 @@ export default class UsersList extends Component {
                     </div>
                 </div>
             );
-        } else {
-            return (
-                <div>
-                    <h2>Loading...</h2>
-                </div>
-            )
         }
-
-
-    }
 }
 
 const propTypes = {

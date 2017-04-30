@@ -58,6 +58,7 @@ body {
     .nav-link {
       height: 60px;
       line-height: 60px;
+      padding: 0;
     }
   }
 }
@@ -208,7 +209,7 @@ body {
   width: 260px;
   .content {
     display: block;
-    height: calc(100%);
+   // height: calc(100%);
     width: 240px;
   }
 }
@@ -497,13 +498,14 @@ body {
 }
 .logout {
   cursor: pointer;
+  height: 60px;
+  line-height: 60px;
+  display: inline-block;
   a {
     color: #fff;
   }
   span {
-    position: relative;
-    top: -13px;
-    left: -5px;
+    display: block;
   }
   i {
     font-size: 40px;

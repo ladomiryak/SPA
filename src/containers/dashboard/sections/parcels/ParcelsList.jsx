@@ -26,6 +26,7 @@ export default class ParcelsList extends Component {
         this.state = {};
         this.removeParcel = this.removeParcel.bind(this);
         this.showModal = this.showModal.bind(this);
+        this.editParcel = this.editParcel.bind(this);
     }
 
 
@@ -44,14 +45,29 @@ export default class ParcelsList extends Component {
         dispatch(showConfirmPopup({action: 'REMOVE_PARCEL', custom: _id, message: 'Are You sure?' }));
     }
 
+    editParcel(_id) {
+        const {dispatch} = this.props;
+        let rows =  document.querySelectorAll([`tr[data-id='${_id}'] td`]);
+
+        rows.forEach(function(row) {
+            let input = row.querySelector('input');
+            input.disabled = false;
+            input.value = '';
+        });
+    }
+
     render() {
 
         const parcelsData = this.props.list.parcelsList.items;
 
-        if (parcelsData !== undefined) {
+        if (parcelsData) {
             const items = parcelsData.map((item) => {
                 return (
-                    <ParcelsItem key={item._id}{...item} removeParcel={this.removeParcel} showModal={this.showModal} />
+                    <ParcelsItem key={item._id}{...item}
+                                 removeParcel={this.removeParcel}
+                                 showModal={this.showModal}
+                                 edit={this.editParcel}
+                    />
                 )
             });
 
@@ -59,7 +75,17 @@ export default class ParcelsList extends Component {
                 <div>
                     <div className="profile_container ">
                         <h2>Parcels</h2>
-                        <table className="table1">
+                        <table className="table">
+                            <colgroup>
+                                <col width="10%" />
+                                <col width="15%" />
+                                <col width="15%" />
+                                <col width="10%" />
+                                <col width="5%" />
+                                <col width="15%" />
+                                <col width="5%" />
+                                <col width="8%" />
+                            </colgroup>
                             <thead>
                             <tr>
                                 <th>Title</th>
@@ -67,8 +93,9 @@ export default class ParcelsList extends Component {
                                 <th>To</th>
                                 <th>Price</th>
                                 <th>Size</th>
-                              {/*  <th>Start Date</th>*/}
                                 <th>Owner</th>
+                                <th className="text-center">Edit</th>
+                                <th className="text-center">Remove</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -79,12 +106,11 @@ export default class ParcelsList extends Component {
                     <Popup />
                 </div>
             )
+        } else {
+            return (
+                <div className="page">Loading</div>
+            )
         }
-
-        return (
-            <div>Loading...</div>
-        )
-
 
     }
 }
@@ -92,7 +118,7 @@ export default class ParcelsList extends Component {
 
 const propTypes = {
     dispatch: PropTypes.func,
-    parcelsList: PropTypes.object,
+    parcelsList: PropTypes.array,
 };
 const defaultProps = {};
 

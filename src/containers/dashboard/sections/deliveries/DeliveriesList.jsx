@@ -31,52 +31,46 @@ export default class DeliveriesList extends Component {
 
     render() {
 
-        const parcelsData = this.props.list.parcelsList.items;
+        const deliveries = this.props.list.deliveriesList.items;
 
-        if (parcelsData !== undefined) {
-            const items = parcelsData.map((item) => {
+        if (deliveries) {
+            const items = deliveries.map((item) => {
                 return (
                     <DeliveriesItem key={item._id}{...item} />
                 )
             });
 
             return (
-                <div>
-                    <div className="profile_container ">
-                        <h2>Parcels</h2>
-                        <table className="table1">
-                            <thead>
-                            <tr>
-                                <th>Title</th>
-                                <th>From</th>
-                                <th>To</th>
-                                <th>Price</th>
-                                <th>Size</th>
-                              {/*  <th>Start Date</th>*/}
-                                <th>Owner</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {items}
-                            </tbody>
-                        </table>
-                    </div>
+                <div className="profile_container ">
+                    <h2>Deliveries</h2>
+                    <table className="table1">
+                        <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>From</th>
+                            <th>To</th>
+                            <th>Price</th>
+                            <th>Size</th>
+                            <th>Owner</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {items}
+                        </tbody>
+                    </table>
                 </div>
             )
+        } else {
+            return (
+                <div className="page">Loading...</div>
+            )
         }
-
-        return (
-            <div>Loading...</div>
-        )
-
-
     }
 }
 
-
 const propTypes = {
     dispatch: PropTypes.func,
-    parcelsList: PropTypes.object,
+    deliveriesList: PropTypes.array,
 };
 const defaultProps = {};
 

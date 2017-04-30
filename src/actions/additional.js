@@ -4,7 +4,8 @@ import {
     FETCH_PARCELS_SUCCESS,
     FETCH_DELIVERIES_SUCCESS,
     REMOVE_PARCEL,
-    REMOVE_PARCEL_SUCCESS
+    REMOVE_PARCEL_SUCCESS,
+    SHOW_PARCEL_INFO
 } from '../constants/additional';
 
 
@@ -20,6 +21,13 @@ export const fetchParcelsSuccess = (payload) => {
     return {
         type: FETCH_PARCELS_SUCCESS,
         payload,
+    };
+};
+
+export const showParcelInfo = (id) => {
+    return {
+        type: SHOW_PARCEL_INFO,
+        payload : id
     };
 };
 

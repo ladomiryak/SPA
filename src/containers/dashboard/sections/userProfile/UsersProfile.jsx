@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {ShowUserProfile} from '../../../../actions/users';
-
+import moment from 'moment';
 
 @connect(
     function mapStateToProps(state) {
@@ -39,7 +39,6 @@ export default class UserProfileItem extends Component {
             phone,
             deliveries,
             parcels,
-          //  country :{name},
             rating,
 
 
@@ -49,11 +48,9 @@ export default class UserProfileItem extends Component {
 
 
         return (
-
-            <div>
-                <div className="profile_container ">
+                <div className="profile_container container">
                    <div className="row">
-                       <div className="col-xs-12 col-md-6">
+                       <div className="col-12 col-md-6">
                            <div className="profile_block">
                                <img src={avatar ? avatar : 'http://s3.amazonaws.com/37assets/svn/765-default-avatar.png'}  alt="avatar" className="profile_avatar"/>
                            </div>
@@ -63,7 +60,7 @@ export default class UserProfileItem extends Component {
                            </div>
                            <div className="profile_block">
                                <span>Date of birth</span>
-                               {dob}
+                               {moment(dob).format('DD.MM.YYYY')}
                            </div>
                            <div className="profile_block">
                                <span>Email</span>
@@ -78,7 +75,7 @@ export default class UserProfileItem extends Component {
                                {phone}
                            </div>
                        </div>
-                       <div className="col-xs-12 col-md-6">
+                       <div className="col-12 col-md-6">
                            <div className="profile_block">
                                <span>Deliveries</span>
                                {deliveries}
@@ -95,7 +92,6 @@ export default class UserProfileItem extends Component {
                        </div>
                    </div>
                 </div>
-            </div>
         )
     }
 }

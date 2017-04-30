@@ -8,9 +8,9 @@ import {
 @connect(
     function mapStateToProps(state) {
 
-        return {
-            userAccessRoleLevel: state.authorization
-        };
+        return  {
+            state
+        }
     },
     function dispatchStateToProps(dispatch) {
         return {

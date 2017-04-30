@@ -23,6 +23,7 @@ export const API_SHOW_USER_PROFILE_URL = '/user';
 
 //parcels
 export const API_GET_PARCELS_LIST = '/parcel/list';
-export const API_GET_DELIVERIES_LIST = '/deliveries';
+export const API_GET_DELIVERIES_LIST = '/delivery/list';
 export const API_REMOVE_PARCEL = '/parcel';
+export const API_PARCEL_INFO = '/parcel';
 

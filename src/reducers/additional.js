@@ -9,8 +9,8 @@ import {
 } from '../constants/authorization';
 
 const defaultState = {
-    parcelsList:{},
-    deliveriesList:{}
+    parcelsList: {},
+    deliveriesList: {}
 };
 
 export default (state = defaultState, action) => {

@@ -8,11 +8,14 @@ import {
     API_GET_DELIVERIES_LIST,
     API_REMOVE_PARCEL
 } from '../constants/api';
-
+import {
+    ROUTE_TO_PARCEL_INFO,
+} from '../constants/routes';
 import {
     FETCH_PARCELS_LIST,
     FETCH_DELIVERIES_LIST,
-    REMOVE_PARCEL
+    REMOVE_PARCEL,
+    SHOW_PARCEL_INFO
 } from '../constants/additional';
 
 import {
@@ -32,6 +35,10 @@ const apiRemoveParcel = (id) => {
         .then(response => response.data);
 };
 
+/*const apiParcelInfo = (id) => {
+    return axios.delete(`${API_URL}${API_REMOVE_PARCEL}/${id}`, {})
+        .then(response => response.data);
+};*/
 
 const apiFetchDeliveries = () => {
     return axios.get(`${API_URL}${API_GET_DELIVERIES_LIST}?type=all`, {})
@@ -46,7 +53,7 @@ export default function () {
 
                 const response = yield call(apiFetchParcels);
 
-                yield put(fetchParcelsActionSuccess(response.data));
+                yield put(fetchParcelsActionSuccess(response));
             } catch (ex) {
                 // todo dispath type error
             }
@@ -57,11 +64,21 @@ export default function () {
 
                 const response = yield call(apiFetchDeliveries);
 
-                yield put(fetchDeliveriesActionSuccess(response.data));
+                yield put(fetchDeliveriesActionSuccess(response));
             } catch (ex) {
                 // todo dispath type error
             }
         }),
+
+        takeLatest(SHOW_PARCEL_INFO, function *() {
+            try {
+
+                yield put(push(ROUTE_TO_PARCEL_INFO));
+            } catch (ex) {
+                // todo dispath type error
+            }
+        }),
+
 
         takeLatest(REMOVE_PARCEL, function *() {
 
@@ -72,8 +89,7 @@ export default function () {
             try {
                 const response = yield call(apiRemoveParcel, payload);
 
-                yield put(removeParcelActionSuccess(response.data));
-                console.log(response, payload);
+                yield put(removeParcelActionSuccess(response));
             } catch (ex) {
                 // todo dispath type error
             }

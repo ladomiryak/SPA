@@ -87,7 +87,7 @@ export default function () {
             try {
                 const response = yield call(apiFetchUsers, payload);
 
-                yield put(fetchUserSuccessAction(response.data));
+                yield put(fetchUserSuccessAction(response));
             } catch (ex) {
                 // todo dispatch type error
             }
@@ -172,7 +172,7 @@ export default function () {
             try {
                 const response = yield call(apiProfileUsers, payload);
 
-                yield put(ShowUserProfileSuccessAction(response.data));
+                yield put(ShowUserProfileSuccessAction(response));
 
             } catch (ex) {
                 // todo dispatch type error

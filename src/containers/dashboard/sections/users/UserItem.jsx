@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from 'react';
+import moment from 'moment';
 
 export default class UserItem extends Component {
 
@@ -27,13 +28,13 @@ export default class UserItem extends Component {
                             handleOpenProfile(_id);
                         }
                     }>
-                    <td><img src={avatar} alt="avatar" width='100'/></td>
+                    <td><img src={avatar} alt="avatar" width='80'/></td>
                     <td >{fullName}</td>
-                    <td>{dob}</td>
+                    <td>{moment(dob).format('DD.MM.YYYY')}</td>
                     <td>{email}</td>
                     <td>{gender}</td>
                     <td>{phone}</td>
-                    <td>{payPalSynced ? '+' : '-'}</td>
+                    <td className="text-center">{payPalSynced ? '+' : '-'}</td>
                 </tr>
         );
     }

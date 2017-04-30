@@ -15,8 +15,7 @@ import {
 @connect(
     function mapStateToProps(state) {
         return {
-            authorizationStatus: state.authorization.status,
-            userStatus: state.authorization.user.status
+            authorizationStatus: state.authorization.status
         };
     },
     function dispatchStateToProps(dispatch) {
@@ -33,7 +32,7 @@ export default class DashboardBase extends Component {
     }
 
     componentDidMount() {
-        const { authorizationStatus, userStatus, dispatch } = this.props;
+        const { authorizationStatus, dispatch } = this.props;
 
         if (authorizationStatus === UNAUTHORIZED) {
             return dispatch(push(ROUTE_LOGIN));
